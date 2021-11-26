@@ -16,6 +16,7 @@
       placeholder="Enter a password"
       required
     />
+    <div v-if="passwordError" class="error">{{ passwordError }}</div>
 
     <label>Role: </label>
     <select v-model="role">
@@ -52,6 +53,7 @@ export default {
       terms: false,
       tempSkill: "",
       skills: [],
+      passwordError: "",
     };
   },
   methods: {
@@ -64,8 +66,12 @@ export default {
     removeSkill(skill) {
       this.skills = this.skills.filter((item) => item != skill);
     },
-    submit(e) {
-      alert("Thank you for signing up " + this.email);
+    submit() {
+      this.passwordError =
+        this.password.length > 5 ? "" : "Password must be 6 characters or more";
+      if(!this.passwordError){
+          console.log("Thank you for signing up " + this.email);
+      }
     },
   },
 };
@@ -131,5 +137,10 @@ form a {
   border-radius: 4px;
   margin: 5px auto;
   font-weight: 500;
+}
+.error {
+    color: crimson;
+    margin: 5px 0;
+    font-size: 14px;
 }
 </style>
