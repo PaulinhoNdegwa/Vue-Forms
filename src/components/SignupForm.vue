@@ -128,8 +128,8 @@ form a {
   background: rgb(98, 1, 167);
   padding: 7px 15px;
   color: white;
-  border-radius: 3px;
+  border-radius: 4px;
   margin: 5px auto;
-  font-weight: 600;
+  font-weight: 500;
 }
 </style>
